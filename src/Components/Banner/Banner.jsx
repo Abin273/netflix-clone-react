@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./Banner.css"
-import {API_KEY,imageUrl} from "../../Constants/constants";
+import {REACT_APP_TMDB_API_KEY,imageUrl} from "../../Constants/constants";
 import axios from '../../axios';
 
 
@@ -9,7 +9,7 @@ function Banner() {
   const [movie,setMovie] = useState('');
    
   useEffect(()=>{
-    axios.get(`trending/all/week?api_key=${API_KEY}&language=en-US`)
+    axios.get(`trending/all/week?api_key=${REACT_APP_TMDB_API_KEY}&language=en-US`)
     .then((response)=>{
       const index = Math.floor(Math.random()*20);
       console.log(response.data.results);

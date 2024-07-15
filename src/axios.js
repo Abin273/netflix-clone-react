@@ -1,8 +1,8 @@
 import axios from "axios";
-import { baseUrl } from "./Constants/constants";
+import { TMDB_BASE_URL } from "./Constants/constants";
 
-const instance = axios.create({
-    baseURL: baseUrl,
+const axiosInstance = axios.create({
+    TMDB_BASE_URL: TMDB_BASE_URL,
 });
 
-export default instance;
+export default axiosInstance;
