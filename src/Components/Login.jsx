@@ -6,17 +6,16 @@ import {
 	signInWithEmailAndPassword,
 	updateProfile,
 } from "firebase/auth";
-import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+import { auth } from "../config/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/redux/userSlice";
+import { PHOTO_URL } from "../utils/Constants/urls";
 
 const Login = () => {
 	const [isSigninForm, setIsSigninForm] = useState(true);
 	const [errorMessage, setErrorMessage] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
 
 	const name = useRef(null);
 	const email = useRef(null);
@@ -55,8 +54,7 @@ const Login = () => {
 				user = userCredential.user;
 				await updateProfile(user, {
 					displayName: name?.current?.value,
-					photoURL:
-						"https://avatars.githubusercontent.com/u/112235416?v=4",
+					photoURL: PHOTO_URL,
 				});
                 // auth.currentUser will contail most recent updated data of a user
 				const { uid, displayName, photoURL } = auth.currentUser;
@@ -79,8 +77,8 @@ const Login = () => {
 			}
 			email.current.value = "";
 			password.current.value = "";
-			// redux user setting logic is written in App.js file
-			navigate("/browse");
+			// redux user setting logic is written in Header.jsx file
+
 		} catch (error) {
 			const errorCode = error.code;
 			const errorMessage = error.message;
