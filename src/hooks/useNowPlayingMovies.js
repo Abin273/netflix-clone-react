@@ -2,13 +2,13 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addNowPlayingMovies } from "../utils/redux/moviesSlice";
 import { useEffect } from "react";
-import { API_OPTIONS } from "../utils/Constants/netflixApis";
+import { API_OPTIONS, NOW_PLAYING_MOVIES_URL } from "../utils/Constants/netflixApis";
 
 const useNowPlaingMovies = () => {
   const dispatch = useDispatch();
   const getNowPlayingMovies = async () => {
     const nowPlayingMovies = await axios.get(
-      "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
+      NOW_PLAYING_MOVIES_URL,
       API_OPTIONS
     );
     console.log(nowPlayingMovies.data.results);
