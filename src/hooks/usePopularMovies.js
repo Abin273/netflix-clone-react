@@ -11,12 +11,11 @@ const usePopularMovies = () => {
       POPULAR_MOVIES_URL,
       API_OPTIONS
     );
-    console.log(popularMovies.data.results);
+    
     dispatch(addPopularMovies(popularMovies.data.results));
   };
 
   useEffect(() => {
-    console.log(process.env.REACT_APP_TMDB_READ_ACCESS_TOKEN);
     getPopularMovies();
   }, []);
 };

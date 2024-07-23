@@ -11,12 +11,11 @@ const useTopRatedMovies = () => {
       TOP_RATED_MOVIES_URL,
       API_OPTIONS
     );
-    console.log(topRatedMovies.data.results);
+    
     dispatch(addTopRatedMovies(topRatedMovies.data.results));
   };
 
   useEffect(() => {
-    console.log(process.env.REACT_APP_TMDB_READ_ACCESS_TOKEN);
     getTopRatedMovies();
   }, []);
 };

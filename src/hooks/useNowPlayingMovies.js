@@ -11,12 +11,11 @@ const useNowPlaingMovies = () => {
       NOW_PLAYING_MOVIES_URL,
       API_OPTIONS
     );
-    console.log(nowPlayingMovies.data.results);
+    
     dispatch(addNowPlayingMovies(nowPlayingMovies.data.results));
   };
 
   useEffect(() => {
-    console.log(process.env.REACT_APP_TMDB_READ_ACCESS_TOKEN);
     getNowPlayingMovies();
   }, []);
 };

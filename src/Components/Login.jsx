@@ -89,7 +89,7 @@ const Login = () => {
 	};
 	return (
 		<div className="bg-yellow-200">
-			<div className="absolute ">
+			<div className="absolute">
 				<img className="" src={backgroundImg} alt="netflix-logo" />
 			</div>
 			<form
