@@ -1,35 +1,25 @@
-import React, { useEffect } from "react";
+// This is browse Page
+/**
+ * Main container
+ *  - Video background
+ *  - Video title
+ * Secondary container
+ *  - Movies list (as n rows)
+ *  - Cards (n cards per row)
+*/
+import React from "react";
 import Header from "./Header";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import { addNowPlayingMovies } from "../utils/redux/moviesSlice";
+import { useNowPlaingMovies } from "../hooks/useNowPlayingMovies";
+import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
 
 const Browse = () => {
-  const diapatch = useDispatch()
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${process.env.REACT_APP_TMDB_READ_ACCESS_TOKEN}`,
-    },
-  };
-  const getNowPlayingMovies = async () => {
-    const nowPlayingMovies = await axios.get(
-      "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
-      options
-    );
-    console.log(nowPlayingMovies.data.results);
-    diapatch(addNowPlayingMovies(nowPlayingMovies.data.results))
-  };
-
-  useEffect(() => {
-    console.log(process.env.REACT_APP_TMDB_READ_ACCESS_TOKEN);
-    getNowPlayingMovies();
-  }, []);
+  useNowPlaingMovies()
   return (
     <div>
       <Header />
-      Browse
+      <MainContainer />
+      <SecondaryContainer />
     </div>
   );
 };
