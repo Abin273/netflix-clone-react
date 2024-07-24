@@ -1,19 +1,6 @@
 # Netflix
 
-## Features
-- Login/Sign Up
-    - Sign In /Sign up Form
-    - redirect to Browse Page
-- Browse (after authentication)
-    - Header
-    - Main Movie
-        - Tailer in Background
-        - Title & Description
-        - MovieSuggestions
-            - MovieLists * N 
-- NetflixGPT
-    - Search Bar
-    - Movie Suggestions
+It is an application similar to netflix. It utilizes **TMDB api** for movies listing and **openai api** for movies search suggestion.
 
 ## Installation
 
@@ -42,8 +29,28 @@
    ```
    npm start
    ```
+   
+# Images
+![Screenshot from 2024-07-24 13-15-02](https://github.com/user-attachments/assets/2be25934-eb7e-42ff-b7f8-bbef02b91072)
+![Screenshot from 2024-07-24 13-01-14](https://github.com/user-attachments/assets/2653a23f-b7dd-47c0-9255-d5b749587c81)
+![Screenshot from 2024-07-24 13-28-16](https://github.com/user-attachments/assets/9460d18c-c518-477d-ab82-9c55d6ba7c48)
 
-   # Things did
+## Features
+- Login/Sign Up
+    - Sign In /Sign up Form
+    - redirect to Browse Page
+- Browse (after authentication)
+    - Header
+    - Main Movie
+        - Tailer in Background
+        - Title & Description
+        - MovieSuggestions
+            - MovieLists * N 
+- NetflixGPT
+    - Search Bar
+    - Movie Suggestions
+
+# Things did
 
 - Create React App
 - Configured TailwindCSS 
