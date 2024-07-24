@@ -2,7 +2,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addNowPlayingMovies } from "../utils/redux/moviesSlice";
 import { useEffect } from "react";
-import { API_OPTIONS, NOW_PLAYING_MOVIES_URL } from "../utils/Constants/netflixApis";
+import { API_OPTIONS, NOW_PLAYING_MOVIES_URL } from "../utils/Constants/tmdbApis";
 
 const useNowPlaingMovies = () => {
   const dispatch = useDispatch();

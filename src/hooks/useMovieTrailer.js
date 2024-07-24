@@ -2,7 +2,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addTrailerVideo } from "../utils/redux/moviesSlice";
 import { useEffect } from "react";
-import { API_OPTIONS } from "../utils/Constants/netflixApis";
+import { API_OPTIONS } from "../utils/Constants/tmdbApis";
 
 const useMovieTrailer = (movieId) => {
   const dispatch = useDispatch()

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addPopularMovies } from "../utils/redux/moviesSlice";
 import { useEffect } from "react";
-import { API_OPTIONS, POPULAR_MOVIES_URL } from "../utils/Constants/netflixApis";
+import { API_OPTIONS, POPULAR_MOVIES_URL } from "../utils/Constants/tmdbApis";
 
 const usePopularMovies = () => {
   const dispatch = useDispatch();
