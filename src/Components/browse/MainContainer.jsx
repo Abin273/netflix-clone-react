@@ -1,8 +1,8 @@
 // MainContainer for browse page
 import React from "react";
 import { useSelector } from "react-redux";
-import VideoTItle from "./VideoTItle";
-import VideoBackground from "./VideoBackground";
+import VideoTItle from "../video/VideoTItle";
+import VideoBackground from "../video/VideoBackground";
 
 const MainContainer = () => {
   const nowPlayingMovies = useSelector(
@@ -14,7 +14,7 @@ const MainContainer = () => {
   const mainMovie = nowPlayingMovies[0];
   const { original_title, overview, id } = mainMovie;
   return (
-    <div>
+    <div className="pt-[45%] md:pt-0 bg-black">
       <VideoTItle title={original_title} overview ={overview} />
       <VideoBackground movieId={id}/>
     </div>

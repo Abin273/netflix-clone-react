@@ -1,11 +1,13 @@
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTopRatedMovies } from "../utils/redux/moviesSlice";
 import { useEffect } from "react";
-import { API_OPTIONS, TOP_RATED_MOVIES_URL } from "../utils/Constants/netflixApis";
+import { API_OPTIONS, TOP_RATED_MOVIES_URL } from "../utils/Constants/tmdbApis";
 
 const useTopRatedMovies = () => {
   const dispatch = useDispatch();
+  const topRatedMoviesExist = useSelector((store) => store.movies.popularMovies);
+
   const getTopRatedMovies = async () => {
     const topRatedMovies = await axios.get(
       TOP_RATED_MOVIES_URL,
@@ -16,7 +18,7 @@ const useTopRatedMovies = () => {
   };
 
   useEffect(() => {
-    getTopRatedMovies();
+    !topRatedMoviesExist && getTopRatedMovies();
   }, []);
 };
 

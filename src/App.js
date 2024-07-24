@@ -1,7 +1,7 @@
 import React from "react";
-import Body from "./Components/Body";
+import Body from "./Components/body/Body";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Browse from "./Components/Browse";
+import Browse from "./Components/browse/Browse";
 
 function App() {
   const appRouter = createBrowserRouter([

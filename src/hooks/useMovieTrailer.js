@@ -1,11 +1,14 @@
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTrailerVideo } from "../utils/redux/moviesSlice";
 import { useEffect } from "react";
-import { API_OPTIONS } from "../utils/Constants/netflixApis";
+import { API_OPTIONS } from "../utils/Constants/tmdbApis";
 
 const useMovieTrailer = (movieId) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const trailerVideoDataExist = useSelector(
+    (store) => store.movies.trailerVideo
+  );
 
   const getMovieTrailerVideo = async () => {
     const videos = await axios.get(
@@ -23,7 +26,7 @@ const useMovieTrailer = (movieId) => {
   };
 
   useEffect(() => {
-    getMovieTrailerVideo();
+    !trailerVideoDataExist && getMovieTrailerVideo();
   }, []);
 };
 

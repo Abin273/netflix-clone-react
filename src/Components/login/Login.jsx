@@ -1,15 +1,15 @@
 import React, { useRef, useState } from "react";
-import backgroundImg from "../assets/background/login-banner.jpg";
-import { validateFormData } from "../utils/validateForm";
+import backgroundImg from "../../assets/background/login-banner.jpg";
+import { validateFormData } from "../../utils/validateForm";
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 	updateProfile,
 } from "firebase/auth";
-import { auth } from "../config/firebase";
+import { auth } from "../../config/firebase";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/redux/userSlice";
-import { PHOTO_URL } from "../utils/Constants/urls";
+import { addUser } from "../../utils/redux/userSlice";
+import { PHOTO_URL } from "../../utils/Constants/urls";
 
 const Login = () => {
 	const [isSigninForm, setIsSigninForm] = useState(true);
@@ -90,11 +90,11 @@ const Login = () => {
 	return (
 		<div className="bg-yellow-200">
 			<div className="absolute">
-				<img className="" src={backgroundImg} alt="netflix-logo" />
+				<img className="h-screen md:h-full object-cover" src={backgroundImg} alt="netflix-logo" />
 			</div>
 			<form
 				action=""
-				className="absolute flex flex-col p-12 bg-black bg-opacity-75 w-3/12 mt-32 mx-auto right-0 left-0 text-white rounded-md"
+				className="absolute flex flex-col p-12 bg-black bg-opacity-75 w-10/12 md:w-3/12 mt-32 mx-auto right-0 left-0 text-white rounded-md"
 			>
 				<h1 className="font-bold text-3xl py-4">
 					{isSigninForm ? "Sign In" : "Sign Up"}
