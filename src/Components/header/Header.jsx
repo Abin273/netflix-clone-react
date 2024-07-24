@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import netflixLogo from "../assets/logo/Netflix_Logo_PMS.png";
-import userImg from "../assets/user/user-image.png";
-import { auth } from "../config/firebase";
+import netflixLogo from "../../assets/logo/Netflix_Logo_PMS.png";
+import userImg from "../../assets/user/user-image.png";
+import { auth } from "../../config/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, removeUser } from "../utils/redux/userSlice";
-import { toggleGptSearchView } from "../utils/redux/gptSlice";
-import { SUPPORTED_LANGUAGES } from "../utils/Constants/language";
-import { changeLanguage } from "../utils/redux/configSlice";
+import { addUser, removeUser } from "../../utils/redux/userSlice";
+import { toggleGptSearchView } from "../../utils/redux/gptSlice";
+import { SUPPORTED_LANGUAGES } from "../../utils/Constants/language";
+import { changeLanguage } from "../../utils/redux/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -57,10 +57,10 @@ const Header = () => {
   };
 
   return (
-    <div className="fixed w-screen px-10 py-5 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img className="h-24" src={netflixLogo} alt="netflix-logo" />
+    <div className="fixed flex w-screen px-10 py-5 bg-gradient-to-b from-black flex-col md:flex-row z-30 justify-center md:justify-between">
+      <img className="h-24 mx-auto md:mx-0" src={netflixLogo} alt="netflix-logo" />
       {user && (
-        <div className="flex gap-3 p-2 items-center">
+        <div className="flex justify-between  p-2 items-center">
           {isGptSearchPage && <select
             className="p-2 bg-gray-800  text-gray-50 m-2"
             onChange={handleLanguageChange}
@@ -80,7 +80,7 @@ const Header = () => {
            {isGptSearchPage?"Homepage":"GPT Search"} 
           </button>
           <img
-            className="h-12 rounded-lg"
+            className="h-12 rounded-lg hidden md:block"
             src={user ? user.photoURL : userImg}
             alt="user-img"
           />
