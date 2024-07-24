@@ -19,20 +19,20 @@ const GptSearchBar = () => {
       ". only give me names of 5 movies, comma seperated like the example result given ahead. Example result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
 
     try {
-      const gptResults = await openaiClient.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: gptQuery }],
-        // stream: true,
-      });
-      // for await (const chunk of gptResults) {
-      //   process.stdout.write(chunk.choices[0]?.delta?.content || "");
-      // }
-      if (!gptResults.choices) throw new Error("Unable to fetch movies");
-      console.log(gptResults.choices?.[0].message?.content);
+      // const gptResults = await openaiClient.chat.completions.create({
+      //   model: "gpt-3.5-turbo",
+      //   messages: [{ role: "user", content: gptQuery }],
+      //   // stream: true,
+      // });
+      // // for await (const chunk of gptResults) {
+      // //   process.stdout.write(chunk.choices[0]?.delta?.content || "");
+      // // }
+      // if (!gptResults.choices) throw new Error("Unable to fetch movies");
+      // console.log(gptResults.choices?.[0].message?.content);
 
-      // Gadar, Sholay, Don, Golmaal, Koi Mil Gaya
-      const gptMovies = gptResults.choices?.[0].message?.content.split(", ");
-      // const gptMovies = ["Gadar", "Sholay", "Don", "Golmaal", "Koi Mil Gaya"]
+      // // Gadar, Sholay, Don, Golmaal, Koi Mil Gaya
+      // const gptMovies = gptResults.choices?.[0].message?.content.split(", ");
+      const gptMovies = ["Gadar", "Sholay", "Don", "Golmaal", "Koi Mil Gaya"]
       // First it returns 5 promises with pending state like, 
       // [Promise {<pending>}, Promise {<pending>}, Promise {<pending>}, Promise {<pending>}, Promise {<pending>}]
       const tmdbApiCalls = gptMovies.map((movie) => searchMoviesTMDB(movie));
