@@ -14,12 +14,18 @@ const useNowPlaingMovies = () => {
   );
 
   const getNowPlayingMovies = async () => {
-    const nowPlayingMovies = await axios.get(
-      NOW_PLAYING_MOVIES_URL,
-      API_OPTIONS
-    );
-
-    dispatch(addNowPlayingMovies(nowPlayingMovies.data.results));
+    try {
+      
+      const nowPlayingMovies = await axios.get(
+        NOW_PLAYING_MOVIES_URL,
+        API_OPTIONS
+      );
+  
+      dispatch(addNowPlayingMovies(nowPlayingMovies.data.results));
+      
+    } catch (error) {
+      console.error(error)
+    }
   };
 
   useEffect(() => {

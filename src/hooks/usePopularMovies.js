@@ -9,9 +9,14 @@ const usePopularMovies = () => {
   const popularMoviesExist = useSelector((store) => store.movies.popularMovies);
 
   const getPopularMovies = async () => {
-    const popularMovies = await axios.get(POPULAR_MOVIES_URL, API_OPTIONS);
-
-    dispatch(addPopularMovies(popularMovies.data.results));
+    try {
+      const popularMovies = await axios.get(POPULAR_MOVIES_URL, API_OPTIONS);
+  
+      dispatch(addPopularMovies(popularMovies.data.results));
+      
+    } catch (error) {
+      console.error(error)
+    }
   };
 
   useEffect(() => {

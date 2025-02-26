@@ -9,12 +9,17 @@ const useTopRatedMovies = () => {
   const topRatedMoviesExist = useSelector((store) => store.movies.popularMovies);
 
   const getTopRatedMovies = async () => {
-    const topRatedMovies = await axios.get(
-      TOP_RATED_MOVIES_URL,
-      API_OPTIONS
-    );
-    
-    dispatch(addTopRatedMovies(topRatedMovies.data.results));
+    try {
+      const topRatedMovies = await axios.get(
+        TOP_RATED_MOVIES_URL,
+        API_OPTIONS
+      );
+      
+      dispatch(addTopRatedMovies(topRatedMovies.data.results));
+      
+    } catch (error) {
+      console.error(error)
+    }
   };
 
   useEffect(() => {
